@@ -1,5 +1,5 @@
 locals {
-  name = "micro-application"
+  name = var.azurerm_web_app_name
   tags = {
     Application = "micro"
     Author      = "Mostafa (Melsayed)"
