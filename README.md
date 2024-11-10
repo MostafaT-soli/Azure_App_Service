@@ -51,7 +51,6 @@ This documentation covers the architecture and deployment of Azure Pipeline for 
 ```bash
 az login
 ```
-* Create a `terraform.tfvars` file in your local repository and add an `ssh_key_path` variable referencing a  public key file.
 
 ### Terraform Commands Requirements
 
@@ -70,13 +69,16 @@ az login
 > Note: Once the Terraform script is successful, we will proceed with the following steps:
 
 - Enable the Continuous deployment option for the newly created app under the deployment center.
+
 - Copy the Webhook URL and create a new Webhook under the Azure Container Repository.
 
 ----
 
 ## Pipeline Preparation
 
-1. Import the 'Devops' repository and the 'Microservices' repository in the same organization within the same project in Azure DevOps Repos.
+1. Import the this repo as 'Devops' repository and the 'Microservices' repository in the same organization within the same project in Azure DevOps Repos.
+
+> Note: Please stick with exact repositor names 'Devops' and  'Microservices' as this is configured in the main trigger of the pipline 
 
 2. Create a service connections to enable Azure DevOps to deploy to ACR.
 
@@ -86,4 +88,4 @@ az login
 
 3. Create a new pipeline and select an existing YAML file, referencing the `pipeline.yml` file under the `AZ-pipeline` folder.
 
-### Any changes to the Microservices repository will trigger the build and deploy pipeline.
+### Any changes to the Microservices repository will trigger the build pipeline.

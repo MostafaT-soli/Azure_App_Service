@@ -31,7 +31,7 @@ stages:
           repoName: ${{ variables.repoName }}
           dockerfile: ${{ variables.dockerfile }}
 
-# Commenting the deploy section as service App deployment center will be using instead
+# Commenting the deploy section as service App deployment centre will be using instead
 
 # - stage: Deploy
 #   jobs:
