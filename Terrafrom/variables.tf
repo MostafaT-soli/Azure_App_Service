@@ -4,8 +4,21 @@ variable "azurerm_container_registry_name" {
   default     = "mtarekacr1234"
 }
 
-variable "azurerm_web_app_name" {
+variable "azurerm_container_repo_name" {
+  description = "Name of application repo "
+  type        = string
+  default     = "micro"
+}
+
+variable "azurerm_frontend_name" {
   description = "Name of the main project"
   type        = string
-  default     = "Web_App"
+  default     = "frontend2325"
 }
+
+
+variable "DOCKER_REGISTRY_SERVER_PASSWORD" {
+  description = "DOCKER_REGISTRY_SERVER_PASSWORD"
+  type        = string
+}
+
