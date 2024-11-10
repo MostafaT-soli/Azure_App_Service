@@ -100,12 +100,6 @@ resource "azurerm_application_gateway" "agw" {
     capacity = 2
   }
 
-  # waf_configuration {
-  #   enabled          = "false"
-  #   firewall_mode    = "Detection"
-  #   rule_set_type    = "OWASP"
-  #   rule_set_version = "3.0"
-  # }
 
   gateway_ip_configuration {
     name      = "subnet"
