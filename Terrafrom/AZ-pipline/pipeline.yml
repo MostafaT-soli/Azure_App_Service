@@ -1,0 +1,45 @@
+resources:
+  repositories:
+    - repository: Microservices
+      type: git
+      name: Microservices
+      ref: 
+      trigger:
+       branches:
+          include:
+            - main
+    - repository: Devops
+      type: git
+      name: Devops
+      ref: 
+      trigger: none
+
+stages:
+- stage: Build
+  jobs:
+  - job: Build
+    pool:
+      vmImage: ubuntu-latest
+    variables:
+      - template: variables.yml
+    steps:
+      - checkout: git://Microservices
+        clean: true
+      - template: templates/build.yml
+        parameters:
+          registryConfigName: ${{ variables.registryConfigName }}
+          repoName: ${{ variables.repoName }}
+          dockerfile: ${{ variables.dockerfile }}
+
+- stage: Deploy
+  jobs:
+  - job: Deploy
+    pool:
+      vmImage: ubuntu-latest
+    variables:
+      - template: variables.yml
+    steps:
+      - template: templates/deploy.yml
+        parameters:
+          containerReg: ${{ variables.containerReg }}
+          imageRepo: ${{ variables.imageRepo }}

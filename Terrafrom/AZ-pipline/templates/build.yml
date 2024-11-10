@@ -1,0 +1,18 @@
+---
+parameters:
+  - name: registryConfigName
+  - name: repoName
+    default: micro
+  - name: dockerfile
+    default: 'Microservices/Dockerfile'
+steps:
+  - task: Docker@2
+    displayName: Docker Build
+    inputs:
+      containerRegistry: ${{ parameters.registryConfigName }}
+      repository: ${{ parameters.repoName }}
+      command: buildAndPush
+      Dockerfile: ${{ parameters.dockerfile }}
+      tags: |
+        $(VERSION)
+        latest

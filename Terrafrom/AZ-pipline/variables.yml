@@ -1,0 +1,7 @@
+---
+variables:
+  VERSION: $(Build.SourceBranchName)_$(Build.BuildId)
+  registryConfigName: mostafa-acr
+  repoName: micro
+  dockerfile: '**/Dockerfile'
+  kubernetesServiceConnection: mostafa-aks

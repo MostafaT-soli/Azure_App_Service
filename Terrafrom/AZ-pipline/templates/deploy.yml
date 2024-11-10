@@ -1,0 +1,16 @@
+---
+parameters:
+  - name: containerReg
+    default: mostafa.azurecr.io
+  - name: imageRepo
+    default: micro
+  - name: imagePullSecret
+    default: regcred
+
+steps:
+  - task: AzureWebAppContainer@1
+    displayName: 'Azure Web App on Container Deploy'
+    inputs:
+      azure: mahsub
+      appName: myapp2323
+      containers: ${{ parameters.containerReg }}/${{ parameters.imageRepo }}:$(VERSION)
