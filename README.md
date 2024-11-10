@@ -5,10 +5,19 @@
 This documentation covers the architecture and deployment of Azure Pipeline for a Python microservice application and automation deployment of the infrastructure on Azure cloud via Terraform and App servcies.
 
 ---
-## High level desighn 
+## Pipline High level design
 
 ![HLD](https://github.com/MostafaT-soli/Azure_App_Service/blob/main/HL.drawio.png)
 
+### HLD Details 
+
+1. Developer will commit the code to the Azure Repo.
+
+2. Code commit will trigger the AZDO pipeline to build the image and push it to the Azure Container Registry.
+
+3. The Azure Container Registry will trigger the deployment of the new image via webhook on the App Service.
+
+---
 ## Terraform Deployment
 
 ### Terraform will deploy the following:
