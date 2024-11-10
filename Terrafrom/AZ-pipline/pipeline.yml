@@ -31,15 +31,17 @@ stages:
           repoName: ${{ variables.repoName }}
           dockerfile: ${{ variables.dockerfile }}
 
-- stage: Deploy
-  jobs:
-  - job: Deploy
-    pool:
-      vmImage: ubuntu-latest
-    variables:
-      - template: variables.yml
-    steps:
-      - template: templates/deploy.yml
-        parameters:
-          containerReg: ${{ variables.containerReg }}
-          imageRepo: ${{ variables.imageRepo }}
+# Commenting the deploy section as service App deployment center will be using instead
+
+# - stage: Deploy
+#   jobs:
+#   - job: Deploy
+#     pool:
+#       vmImage: ubuntu-latest
+#     variables:
+#       - template: variables.yml
+#     steps:
+#       - template: templates/deploy.yml
+#         parameters:
+#           containerReg: ${{ variables.containerReg }}
+#           imageRepo: ${{ variables.imageRepo }}
