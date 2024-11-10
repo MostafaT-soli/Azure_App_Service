@@ -5,6 +5,9 @@
 This documentation covers the architecture and deployment of Azure Pipeline for a Python microservice application and automation deployment of the infrastructure on Azure cloud via Terraform and App servcies.
 
 ---
+## High level desighn 
+
+![HLD](https://github.com/MostafaT-soli/Azure_App_Service/blob/main/HL.drawio.png)
 
 ## Terraform Deployment
 
@@ -12,14 +15,13 @@ This documentation covers the architecture and deployment of Azure Pipeline for 
 
 1. Resource Group: This will contain all the below resources.
 
-2. Web Application (App servcie) : this where our webapplication will be be hosted 
+2. Web Application (App Service): This is where our web application will be hosted.
 
-3. Application Gateway: This will be our only entry for the application 
+3. Application Gateway: This will be our only entry for the application.
 
 4. Virtual Network and Subnet: For pod network communication.
 
 5. Container Registry: To upload the containerized application.
-
 
 ### Terraform Deployment Requirements
 
